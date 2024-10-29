@@ -57,11 +57,13 @@ const DeletebyId = async (Id) => {
   }
 
   // If found, delete the person using the splice method
+  const deletedPerson = persons[personIndex]; // Store the deleted person data
   persons.splice(personIndex, 1);
 
-  // Return the updated persons array
-  return { message: "Person deleted successfully", persons: persons };
+  // Return a success message along with the deleted person's data
+  return { message: "Person deleted successfully", deletedPerson };
 };
+
 // Function to update a person's data by their ID
 const Update = async (id, name, age, hobbies) => {
   // Find the person's index by their ID in the persons array
