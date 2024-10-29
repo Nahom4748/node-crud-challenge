@@ -2,14 +2,7 @@
 const { v4: uuidv4 } = require("uuid");
 
 // Array to store all persons' data in memory as a temporary database
-let persons = [
-  {
-    id: "1",
-    name: "Sam",
-    age: "26",
-    hobbies: ["Coding", "Playing piano"],
-  },
-];
+let persons = [];
 
 // Function to fetch and return all persons' data from memory
 const getAllPersons = async () => {
@@ -67,9 +60,8 @@ const DeletebyId = async (Id) => {
   persons.splice(personIndex, 1);
 
   // Return the updated persons array
-  return persons;
+  return { message: "Person deleted successfully", persons: persons };
 };
-
 // Function to update a person's data by their ID
 const Update = async (id, name, age, hobbies) => {
   // Find the person's index by their ID in the persons array

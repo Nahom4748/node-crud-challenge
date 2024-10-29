@@ -18,13 +18,6 @@ app.use(
   })
 );
 
-// Catch-all middleware to handle requests to non-existing endpoints
-app.use((req, res) => {
-  res.status(404).json({
-    error: "Resource not found",
-    message: "The requested endpoint does not exist.",
-  });
-});
 // Mounts imported routes to the application, enabling organized route management
 app.use(router);
 
