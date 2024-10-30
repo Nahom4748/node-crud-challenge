@@ -22,5 +22,10 @@ router.delete("/person/:personId", person.DeletePerson);
 // Define a route to update an existing person's information by ID, handled by the UpdatePerson function
 router.put("/person/:personId", person.UpdatePerson);
 
+// Handle non-existing endpoints with a 404 response
+router.use((req, res) => {
+  res.status(404).json({ error: "Resource not found" });
+});
+
 // Export the router instance to make these routes available for use in the main application
 module.exports = router;
